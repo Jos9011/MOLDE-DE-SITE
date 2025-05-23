@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ferrovias do Brasil</title>
+
+  <link rel="stylesheet" href="site.css" />
+  <style>
+  </style>
+</head>
+<body>
+  <header>
+    <div style="position: relative; width: 100%; padding-top: 56.25%; overflow: hidden;">
+      <iframe
+        src="https://www.youtube.com/embed/8hi3j6tvIbg?autoplay=1&mute=1&loop=1&playlist=8hi3j6tvIbg&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"
+      ></iframe>
+    </div>
+  
+    <div class="header-content">
+      <a href="https://www.vli-logistica.com.br" target="_blank"><img src="imagem/vli-logistica-logo-0.png" alt="VLI"/></a>
+    </div>
+  </header>
+  
+
+  <nav>
+    <div class="menu-esquerdo">
+      <a href="his.html">História</a>
+      <a href="tec.html">Tecnologia</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <div class="menu-direito">
+      <a href="https://br.linkedin.com/company/vlilogistica" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+      <a href="https://www.efvm.com.br" target="_blank" rel="noopener noreferrer">EFVM</a>
+      <a href="https://www.rumo.com.br" target="_blank" rel="noopener noreferrer">Rumo</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section id="noticias">
+      <h2>NOTÍCIAS</h2>
+      <a href="https://www.vli-logistica.com.br/vli-atinge-recorde-historico-de-movimentacao-de-acucar-na-ferrovia-centro-atlantica/" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="noticia_1">
+          <img src="ima_noticia/MGL0611-2-300x200.jpg" alt="notícia" />
+          <h4 class="texto1">negócios</h4>
+          <h4 class="data">data: 13 maio de 2025</h4>
+          <p>VLI atinge recorde histórico de movimentação de açúcar na Ferrovia Centro-Atlântica</p>
+        </div>
+      </a>
+    </section>
+
+    <section id="tecnologia">
+      <h2>Um Pouco Mais</h2>
+      <div class="slider">
+        <div class="slides">
+          <img src="imagem/Vagas-Maquinistas.png" alt="Imagem 1" />
+          <img src="imagem/20250521_195747.jpg" alt="Imagem 2" />
+          <img src="imagem/48yn20vge3k71.gif" alt="Imagem 3" />
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <h2>Galeria de Imagens</h2>
+      <div class="gallery">
+        <img src="https://via.placeholder.com/300x200?text=Estação+Histórica" alt="Estação Histórica" />
+        <img src="https://via.placeholder.com/300x200?text=Locomotiva+Moderna" alt="Locomotiva Moderna" />
+      </div>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Para mais informações, envie um e-mail para: <a href="mailto:contato@ferroviasdobrasil.com">contato@ferroviasdobrasil.com</a></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Ferrovias do Brasil. Todos os direitos reservados.</p>
+  </footer>
+
+  <div id="scroll-train"></div>
+
+  <script>
+    // Scroll suave para links internos
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetID = link.getAttribute('href').slice(1);
+        const target = document.getElementById(targetID);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  
+    // Animação fade-in das seções
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+  
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  
+    // Movimento do trem conforme o scroll
+    const train = document.getElementById('scroll-train');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = scrollTop / docHeight;
+      const minTop = 50;
+      const maxTop = window.innerHeight * 0.9;
+      train.style.top = minTop + scrollPercent * (maxTop - minTop) + 'px';
+    });
+  
+    // Transição suave ao sair para qualquer link (exceto anchors e mailto)
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href.startsWith('#') && !href.startsWith('mailto:')) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          const destination = this.href;
+          setTimeout(() => {
+            window.location.href = destination;
+          }, 500); // tempo da transição
+        });
+      }
+    });
+
+    // Código para o slider funcionar
+    const slides = document.querySelector('.slides');
+    const slideImages = document.querySelectorAll('.slides img');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+
+    let currentIndex = 0;
+
+    function updateSlidePosition() {
+      const slideWidth = slideImages[0].clientWidth;
+      slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex++;
+      if (currentIndex >= slideImages.length) {
+        currentIndex = 0;
+      }
+      updateSlidePosition();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = slideImages.length - 1;
+      }
+      updateSlidePosition();
+    });
+
+    window.addEventListener('load', updateSlidePosition);
+    window.addEventListener('resize', updateSlidePosition);
+  </script>
+</body>
+</html>
