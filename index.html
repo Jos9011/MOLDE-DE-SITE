@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="site.css" />
   <style>
   </style>
-</head>
+</head> <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
+
   <header>
     <div style="position: relative; width: 100%; padding-top: 56.25%; overflow: hidden;">
-      <iframe
+    <iframe
         src="https://www.youtube.com/embed/8hi3j6tvIbg?autoplay=1&mute=1&loop=1&playlist=8hi3j6tvIbg&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1"
         frameborder="0"
         allow="autoplay; encrypted-media"
@@ -22,16 +23,18 @@
     </div>
   
     <div class="header-content">
-      <a href="https://www.vli-logistica.com.br" target="_blank"><img src="imagem/vli-logistica-logo-0.png" alt="VLI"/></a>
+      <a href="https://www.vli-logistica.com.br" target="_blank">
+        <img src="imagem/vli-logistica-logo-0.png" alt="VLI" class="glow-logo" />
+      </a>      
     </div>
   </header>
   
-
+  
   <nav>
     <div class="menu-esquerdo">
       <a href="his.html">História</a>
       <a href="tec.html">Tecnologia</a>
-      <a href="#galeria">Galeria</a>
+      <a href="galeria.html">Galeria</a>
       <a href="#contato">Contato</a>
     </div>
     <div class="menu-direito">
@@ -68,18 +71,31 @@
     </section>
 
     <section id="galeria">
-      <h2>Galeria de Imagens</h2>
-      <div class="gallery">
-        <img src="https://via.placeholder.com/300x200?text=Estação+Histórica" alt="Estação Histórica" />
-        <img src="https://via.placeholder.com/300x200?text=Locomotiva+Moderna" alt="Locomotiva Moderna" />
+      <h2>Calendário de Eventos</h2>
+      <div class="calendar-container">
+        <iframe 
+          src="https://calendar.google.com/calendar/embed?src=seudominio.com_xxxxxx%40group.calendar.google.com&ctz=America%2FSao_Paulo" 
+          style="border: 0" 
+          width="100%" 
+          height="600" 
+          frameborder="0" 
+          scrolling="no">
+        </iframe>
       </div>
     </section>
+    
 
     <section id="contato">
-      <h2>Contato</h2>
-      <p>Para mais informações, envie um e-mail para: <a href="mailto:contato@ferroviasdobrasil.com">contato@ferroviasdobrasil.com</a></p>
+      <h2>Links Úteis</h2>
+      <ul class="lista-links">
+        <li><a href="https://www.antt.gov.br/" target="_blank" rel="noopener noreferrer">ANTT – Agência Nacional de Transportes Terrestres</a></li>
+        <li><a href="https://www.gov.br/infraestrutura/" target="_blank" rel="noopener noreferrer">Ministério da Infraestrutura</a></li>
+        <li><a href="https://www.vale.com" target="_blank" rel="noopener noreferrer">Vale</a></li>
+        <li><a href="https://www.rumo.com.br" target="_blank" rel="noopener noreferrer">Rumo Logística</a></li>
+        <li><a href="https://www.vli-logistica.com.br" target="_blank" rel="noopener noreferrer">VLI Logística</a></li>
+      </ul>
     </section>
-  </div>
+    
 
   <footer>
     <p>&copy; 2025 Ferrovias do Brasil. Todos os direitos reservados.</p>

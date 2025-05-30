@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeria TurboSteel</title>
+  <link rel="stylesheet" href="galeria.css" />
+</head>
+<body>
+  <a href="index.html" class="back-home">
+    <svg viewBox="0 0 24 24">
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+    Voltar
+  </a>
+
+  <header>
+    <div class="titulo">
+      <h1>Galeria de Mídia</h1>
+      <p>Imagens e vídeos da jornada da TurboSteel</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Bloco de imagem -->
+    <div class="tecnologia">
+      <h2>Nosso carro em ação</h2>
+      <img src="carro-turbosteel.jpg" alt="Carro TurboSteel em pista" style="width:100%; border-radius: 10px;" />
+      <p>Foto tirada durante os testes na pista de corrida em abril de 2025.</p>
+    </div>
+
+    <!-- Bloco de vídeo -->
+    <div class="tecnologia">
+      <h2>Bastidores da construção</h2>
+      <video controls style="width:100%; border-radius: 10px;">
+        <source src="construcao-carro.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeo em HTML5.
+      </video>
+      <p>Registro do processo de construção e montagem do carro na oficina da escuderia.</p>
+    </div>
+
+    <!-- Bloco adicional de imagem -->
+    <div class="tecnologia">
+      <h2>Design do protótipo</h2>
+      <img src="design-prototipo.jpg" alt="Design digital do protótipo" style="width:100%; border-radius: 10px;" />
+      <p>Visualização digital criada com o Flow Design, mostrando o conceito aerodinâmico.</p>
+    </div>
+
+    <!-- Bloco adicional de vídeo -->
+    <div class="tecnologia">
+      <h2>Apresentação oficial</h2>
+      <video controls style="width:100%; border-radius: 10px;">
+        <source src="apresentacao-oficial.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeo em HTML5.
+      </video>
+      <p>Vídeo da apresentação do carro na feira tecnológica da escola.</p>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href]').forEach(link => {
+  const href = link.getAttribute('href');
+  if (!href.startsWith('#') && !href.startsWith('mailto:')) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.body.classList.add('fade-out');
+      const destination = this.href;
+      setTimeout(() => {
+        window.location.href = destination;
+      }, 500); // tempo da transição
+    });
+  }
+});
+  </script>
+
+  <footer>
+    &copy; 2025 TurboSteel | Todos os direitos reservados
+  </footer>
+</body>
+</html>
