@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tecnologias Ferroviárias no Brasil</title>
+  <link rel="stylesheet" href="tec.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="back-home" aria-label="Voltar para página inicial">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </a>      
+    <svg viewBox="0 0 1440 320">
+      <path fill="#004080" fill-opacity="1" d="M0,96L60,106.7C120,117,240,139,360,128C480,117,600,75,720,90C840,107,960,181,1080,213.3C1200,245,1320,235,1380,229.3L1440,224L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+    </svg>
+    <div class="titulo">
+      <h1>Tecnologias Ferroviárias do Brasil</h1>
+      <p>Inovação e Sustentabilidade nos Trilhos</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="tecnologia">
+      <h2>Trens Elétricos</h2>
+      <p>As locomotivas elétricas oferecem maior eficiência energética e reduzem as emissões de gases poluentes, sendo uma solução sustentável para o transporte ferroviário.</p>
+    </section>
+
+    <section class="tecnologia">
+      <h2>Controle Automatizado</h2>
+      <p>Com sistemas de sinalização e monitoramento por satélite, é possível otimizar a operação dos trens, reduzindo atrasos e melhorando a segurança.</p>
+    </section>
+
+    <section class="tecnologia">
+      <h2>Material Rodante Avançado</h2>
+      <p>Os vagões e locomotivas utilizam ligas metálicas de alta resistência e baixo peso, aumentando a durabilidade e capacidade de carga.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tecnologias Ferroviárias. Inspirado pela VLI.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tecnologia').forEach(sec => {
+      sec.addEventListener('mouseover', () => {
+        sec.style.transform = 'scale(1.02)';
+        sec.style.transition = 'transform 0.3s ease';
+      });
+      sec.addEventListener('mouseout', () => {
+        sec.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>
